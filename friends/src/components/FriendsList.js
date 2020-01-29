@@ -1,21 +1,30 @@
 import React, {useState, useEffect} from 'react';
-import axios from 'axios';
+import {axiosWithAuth} from '../utils/axiosWithAuth';
+
+import Friend from './Friend';
+import './styles/FriendsList.css';
 
 const FriendsList = () => {
   const [friends, setFriends] = useState([]);
 
   useEffect(() => {
-    axios
-      .get('http://localhost:5000')
+    axiosWithAuth()
+      .get('/api/friends')
       .then(response => {
-        console.log(response);
+        // console.log(response.data);
+        setFriends(response.data);
       })
       .catch();
-  }, []);
+  }, [friends]);
 
   return (
-    <div>
-      <h3>Welcome to your friends list</h3>
+    <div className='friends-list-container'>
+      <h3 className='title'>Welcome to your friends list</h3>
+      <div className='friends-list'>
+        {friends.map(friend => {
+          return <Friend key={friend.id} friend={friend} />;
+        })}
+      </div>
     </div>
   );
 };
