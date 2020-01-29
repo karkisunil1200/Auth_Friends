@@ -38,7 +38,7 @@ const LoginForm = props => {
         <form onSubmit={onSubmitHandler}>
           <div className='login-input'>
             <label>Name</label>
-            <input type='text' name='username' value={state.uernaname} onChange={onChangeHandler} />
+            <input type='text' name='username' value={state.username} onChange={onChangeHandler} />
           </div>
           <div className='login-input'>
             <label>Password</label>
