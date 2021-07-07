@@ -1,0 +1,17 @@
+.friends-list-container {
+  border: solid 5px;
+  padding: 20px;
+}
+
+.friends-list {
+  display: flex;
+  border: 5px solid red;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.friends-list-container .title {
+  text-align: center;
+  font-size: 25px;
+  color: orangeRed;
+}
